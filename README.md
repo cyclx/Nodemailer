@@ -1,3 +1,29 @@
+Nodemailer是一个简单易用的Node.js邮件发送组件（通过SMTP、sendmail或者Amazon SES实现邮件发送），且支持 Unicode编码。近日，Nodemailer 1.0发布，此版本包括许多新特性，稳定性也得到了提高，第一次不支持向后兼容。该版本对整个代码进行了重构，降低了代码复杂度，使代码更加简单，更加易于维护。该版本还新增了一个简单的插件API。
+
+Nodemailer的主要特点包括：
+
+    支持Unicode编码
+    支持HTML内容和普通文本内容
+    HTML内容中可以嵌入图片
+    使用SSL/STARTTLS实现安全的邮件发送
+    支持内置的transport方法和其他插件实现的transport方法
+    自定义插件处理消息
+    支持XOAUTH2登录验证
+
+Nodemailer 0.x系列版本包括许多开发者不需要的功能，为了降低Nodemailer的代码复杂度和提高可维护性，Nodemailer 1.0把这些可选的功能代码移出核心代码库，并以插件的形式提供相应功能，如nodemailer-markdown插件，在构建模板时需要使用该插件，它使开发者能够使用标记代替html内容或者普通文本。
+
+在Nodemailer 1.0中，使用新代码重写了一些模块，并从emailjs.org邮件处理组件的代码中，借鉴了许多代码。该版本还规范化了一些API，如使用filename代替fileName。同时还废除了一些功能，如废除了generateTextFromHTML方法。
+
+Nodemailer 1.0基于new Node streaming API（Streams2）实现发送邮件，所以性能上有了很大的提高，使开发者能够实现G量级的附件发送，且在短时间内能够发送数千万封邮件。
+
+根据新新增的插件API要求，所有的插件都必须接收两个参数，第一个是邮件对象，第二个是回调函数，邮件对象包括两个属性：data和message。
+
+Nodemailer 1.0以后的版本将会根据语义化版本控制规范制定，新功能和向后不兼容的变化将会放到主版本中，bug的修复将会放到补丁版本中。
+
+请开发者注意，如果您正在使用Nodemailer 0.7或者更低的版本，建议不要升级。如果真有升级需要，请参考0.7版本升级到1.0版本的升级指南。另外，Nodemailer是Node.js邮件发送模块，Node.js是一个可用来快速构建网络服务及应用的平台，它对Google V8引擎进行了封装。有关Nodemailer更多详细内容请查看发行说明，登录GitHub下载Nodemailer。
+
+
+
 ![Nodemailer](https://raw.githubusercontent.com/andris9/Nodemailer/master/assets/nm_logo_200x136.png)
 
 Send e-mails from Node.js – easy as cake!
